@@ -1,0 +1,15 @@
+[package]
+name = "sol1"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+ahash = "0.8.12"
+memmap2 = "0.9.9"
+rayon = "1.11.0"
+findlib = { path = "../findlib" }
+criterion = { version = "0.7.0", features = ["html_reports"] }
+
+[[bench]]
+name = "bench"
+harness = false
