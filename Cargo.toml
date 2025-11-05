@@ -12,4 +12,4 @@ sol1 = { path = "sol1" }
 
 
 [workspace]
-members = ["generate", "sol1", "findlib"]
+members = ["generate", "sol1", "findlib", "sol2"]

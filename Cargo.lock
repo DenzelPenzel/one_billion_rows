@@ -876,6 +876,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "sol2"
+version = "0.1.0"
+dependencies = [
+ "criterion",
+ "findlib",
+ "memmap2",
+ "rayon",
+]
+
+[[package]]
 name = "spin"
 version = "0.10.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"

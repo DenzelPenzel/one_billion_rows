@@ -15,7 +15,7 @@ fn criterion_benchmark(c: &mut Criterion) {
         b.iter_batched(
             || path.to_string_lossy().to_string(),
             |filename| {
-                let out = sol1::solve(filename).unwrap();
+                let out = sol2::solve(filename).unwrap();
                 black_box(out);
             },
             criterion::BatchSize::SmallInput,

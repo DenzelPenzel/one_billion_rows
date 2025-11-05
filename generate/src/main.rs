@@ -455,14 +455,15 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         WeatherStation::new("Zürich", 9.3),
     ];
 
-    let f = File::create("measurements.txt")?;
+    let f =  std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../data/measurements.txt");
+    let f = File::create(f)?;
     let mut stream = BufWriter::new(f);
 
     for i in 0..size {
         if i > 0 && i % 50_000_000 == 0 {
             println!(
                 "Wrote {i} measurements in {} ms",
-                start.elapsed().as_millis()
+                start.elapsed().as_secs()
             );
         }
         let station = &stations[rand::thread_rng().gen_range(0..stations.len())];
@@ -471,7 +472,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
     println!(
         "Created file with {size} measurements in {} ms",
-        start.elapsed().as_millis()
+        start.elapsed().as_secs()
     );
 
     Ok(())
